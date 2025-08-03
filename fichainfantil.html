@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ficha de Cadastro - Departamento Infantil</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .topo-logos {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo-esquerda img {
+      height: 310px;
+    }
+
+    .logo-direita img {
+      height: 120px;
+    }
+
+    fieldset {
+      border: none;
+      margin-bottom: 25px;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    legend {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border-radius: 4px;
+    }
+
+    input[name="nome"] {
+      background-color: #FFFACD;
+      border: 1px solid #E1D19D;
+    }
+
+    input[name="data_nascimento"] {
+      background-color: #D0F0FD;
+      border: 1px solid #A9D6E5;
+    }
+
+    select[name="sexo"] {
+      background-color: #C4F0C5;
+      border: 1px solid #8ACF7B;
+    }
+
+    input[name="endereco"],
+    input[name="cep"],
+    input[name="bairro"] {
+      background-color: #FFDDC1;
+      border: 1px solid #DDAE7A;
+    }
+
+    input[name="reside_com"] {
+      background-color: #FEE2E2;
+      border: 1px solid #D18C8C;
+    }
+
+    input[name="emergencia"] {
+      background-color: #FFF4C1;
+      border: 1px solid #E0D68D;
+    }
+
+    input[name="telefone_emergencia"] {
+      background-color: #D9E6FF;
+      border: 1px solid #8A9FE3;
+    }
+
+    input[name="pai"] {
+      background-color: #FFEBCC;
+      border: 1px solid #C8A45E;
+    }
+
+    input[name="telefone_pai"] {
+      background-color: #C1FFD7;
+      border: 1px solid #7DC88E;
+    }
+
+    input[name="ocupacao_pai"] {
+      background-color: #FFDDDD;
+      border: 1px solid #D98989;
+    }
+
+    input[name="mae"] {
+      background-color: #FFF1A8;
+      border: 1px solid #D1C562;
+    }
+
+    input[name="telefone_mae"] {
+      background-color: #D0F4F7;
+      border: 1px solid #8EB7C4;
+    }
+
+    input[name="ocupacao_mae"] {
+      background-color: #E9F7F7;
+      border: 1px solid #A6D4D4;
+    }
+
+    input[name="irmao1"],
+    input[name="irmao2"],
+    input[name="irmao3"],
+    input[name="irmao4"] {
+      background-color: #FFE7B3;
+      border: 1px solid #D1B468;
+      margin-bottom: 10px;
+    }
+
+    input[name="alergia_tipo"] {
+      background-color: #E6F3FF;
+      border: 1px solid #A3BFE5;
+    }
+
+    input[name="necessidade_tipo"] {
+      background-color: #FFD6E8;
+      border: 1px solid #D38FA0;
+    }
+
+    .linha {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .linha > div {
+      flex: 1;
+    }
+
+    .sim-nao {
+      margin-top: 5px;
+    }
+
+    .sim-nao label {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    .btn-enviar {
+      width: 100%;
+      padding: 12px;
+      background-color: #25d366;
+      border: 6px solid white;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15), 0 0 8px rgba(37, 211, 102, 0.6);
+    }
+
+    .btn-enviar:hover {
+      background-color: #1ebc59;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2), 0 0 12px rgba(37, 211, 102, 0.8);
+    }
+
+    .btn-enviar:active {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 6px rgba(37, 211, 102, 0.5);
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="topo-logos">
+      <div class="logo-esquerda">
+        <img src="https://familiaphilchurch.github.io/cadastro/infantillogo.png" alt="Logo Infantil">
+      </div>
+      <div class="logo-direita">
+        <img src="https://familiaphilchurch.github.io/cadastro/di.png" alt="Logo DI">
+      </div>
+    </div>
+
+    <form id="formulario">
+      <fieldset>
+        <legend>👤 Dados Pessoais</legend>
+        <label>Nome:</label>
+        <input type="text" name="nome" class="capitalizar" required>
+
+        <div class="linha">
+          <div>
+            <label>Data de Nascimento:</label>
+            <input type="date" name="data_nascimento" required>
+          </div>
+          <div>
+            <label>Sexo:</label>
+            <select name="sexo">
+              <option value="">Selecione</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+            </select>
+          </div>
+        </div>
+
+        <label>Endereço:</label>
+        <input type="text" name="endereco" class="capitalizar">
+
+        <div class="linha">
+          <div>
+            <label>CEP:</label>
+            <input type="text" name="cep" pattern="\d{5}-\d{3}" placeholder="00000-000">
+          </div>
+          <div>
+            <label>Bairro:</label>
+            <input type="text" name="bairro" class="capitalizar">
+          </div>
+        </div>
+
+        <label>Reside com:</label>
+        <input type="text" name="reside_com" class="capitalizar">
+
+        <label>Em caso de emergência entrar em contato com:</label>
+        <input type="text" name="emergencia" class="capitalizar">
+
+        <label>Telefone:</label>
+        <input type="tel" name="telefone_emergencia">
+      </fieldset>
+
+      <fieldset>
+        <legend>👪 Dados Familiares</legend>
+
+        <div class="linha">
+          <div>
+            <label>Pai:</label>
+            <input type="text" name="pai" class="capitalizar">
+          </div>
+          <div>
+            <label>Telefone:</label>
+            <input type="tel" name="telefone_pai">
+          </div>
+        </div>
+
+        <label>Ocupação:</label>
+        <input type="text" name="ocupacao_pai" class="capitalizar">
+
+        <div class="linha">
+          <div>
+            <label>Mãe:</label>
+            <input type="text" name="mae" class="capitalizar">
+          </div>
+          <div>
+            <label>Telefone:</label>
+            <input type="tel" name="telefone_mae">
+          </div>
+        </div>
+
+        <label>Ocupação:</label>
+        <input type="text" name="ocupacao_mae" class="capitalizar">
+
+        <div class="linha sim-nao">
+          <div>
+            <label>São membros da igreja?</label>
+            <label><input type="radio" name="membros" value="Sim"> Sim</label>
+            <label><input type="radio" name="membros" value="Não"> Não</label>
+          </div>
+
+          <div>
+            <label>Tem mais filhos?</label>
+            <label><input type="radio" name="mais_filhos" value="Sim"> Sim</label>
+            <label><input type="radio" name="mais_filhos" value="Não"> Não</label>
+          </div>
+        </div>
+
+        <label>Nome(s) dos irmãos:</label>
+        <input type="text" name="irmao1" class="capitalizar">
+        <input type="text" name="irmao2" class="capitalizar">
+        <input type="text" name="irmao3" class="capitalizar">
+        <input type="text" name="irmao4" class="capitalizar">
+      </fieldset>
+
+      <fieldset>
+        <legend>🔎 Observações Pessoais</legend>
+
+        <label>É alérgico?</label>
+        <label><input type="radio" name="alergico" value="Sim"> Sim</label>
+        <label><input type="radio" name="alergico" value="Não"> Não</label>
+        <label>Se sim, qual:</label>
+        <input type="text" name="alergia_tipo">
+
+        <label>Tem necessidades especiais?</label>
+        <label><input type="radio" name="necessidades" value="Sim"> Sim</label>
+        <label><input type="radio" name="necessidades" value="Não"> Não</label>
+        <label>Se sim, qual:</label>
+        <input type="text" name="necessidade_tipo">
+      </fieldset>
+
+      <button class="btn-enviar" type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("formulario").addEventListener("submit", function(e){
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      let texto = "";
+      for (const [key, value] of formData.entries()) {
+        if (value) {
+          texto += `*${key.replace(/_/g, " ")}:* ${value}\n`;
+        }
+      }
+      const telefone = "21969148246";
+      const mensagem = encodeURIComponent(texto);
+      const link = `https://wa.me/${telefone}?text=${mensagem}`;
+      window.open(link, '_blank');
+    });
+
+    // Capitalizar primeira letra de nomes
+    document.querySelectorAll('.capitalizar').forEach(input => {
+      input.addEventListener('input', () => {
+        input.value = input.value.replace(/\b\w/g, l => l.toUpperCase());
+      });
+    });
+  </script>
+</body>
+</html>
